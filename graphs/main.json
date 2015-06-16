@@ -8,6 +8,60 @@
     "inports": {},
     "outports": {},
     "groups": [],
-    "processes": {},
-    "connections": []
+    "processes": {
+        "bhspoc/bhs-input_al6g0": {
+            "component": "bhspoc/bhs-input",
+            "metadata": {
+                "label": "bhspoc/bhs-input",
+                "x": 334,
+                "y": 100,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "bhspoc/bhs-transform_1c5zn": {
+            "component": "bhspoc/bhs-transform",
+            "metadata": {
+                "label": "bhspoc/bhs-transform",
+                "x": 612,
+                "y": 216,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "bhspoc/bhs-join_zkuav": {
+            "component": "bhspoc/bhs-join",
+            "metadata": {
+                "label": "bhspoc/bhs-join",
+                "x": 684,
+                "y": 108,
+                "width": 72,
+                "height": 72
+            }
+        }
+    },
+    "connections": [
+        {
+            "src": {
+                "process": "bhspoc/bhs-input_al6g0",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "bhspoc/bhs-join_zkuav",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "bhspoc/bhs-join_zkuav",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "bhspoc/bhs-transform_1c5zn",
+                "port": "in"
+            },
+            "metadata": {}
+        }
+    ]
 }
