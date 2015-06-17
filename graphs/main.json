@@ -9,32 +9,42 @@
     "outports": {},
     "groups": [],
     "processes": {
-        "bhspoc/bhs-input_al6g0": {
+        "bhspoc/bhs-input_yyudx": {
             "component": "bhspoc/bhs-input",
             "metadata": {
                 "label": "bhspoc/bhs-input",
-                "x": 334,
-                "y": 100,
+                "x": 0,
+                "y": 36,
                 "width": 72,
                 "height": 72
             }
         },
-        "bhspoc/bhs-transform_1c5zn": {
+        "bhspoc/bhs-transform_5jumo": {
             "component": "bhspoc/bhs-transform",
             "metadata": {
                 "label": "bhspoc/bhs-transform",
-                "x": 612,
-                "y": 216,
+                "x": 144,
+                "y": -72,
                 "width": 72,
                 "height": 72
             }
         },
-        "bhspoc/bhs-join_zkuav": {
+        "bhspoc/bhs-join_l7lez": {
             "component": "bhspoc/bhs-join",
             "metadata": {
                 "label": "bhspoc/bhs-join",
-                "x": 684,
-                "y": 108,
+                "x": 252,
+                "y": 36,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "bhspoc/bhs-broadcast_hbt0z": {
+            "component": "bhspoc/bhs-broadcast",
+            "metadata": {
+                "label": "bhspoc/bhs-broadcast",
+                "x": 396,
+                "y": 72,
                 "width": 72,
                 "height": 72
             }
@@ -43,22 +53,61 @@
     "connections": [
         {
             "src": {
-                "process": "bhspoc/bhs-input_al6g0",
+                "process": "bhspoc/bhs-input_yyudx",
+                "port": "path"
+            },
+            "tgt": {
+                "process": "bhspoc/bhs-transform_5jumo",
+                "port": "inputfield"
+            },
+            "metadata": {
+                "route": null
+            }
+        },
+        {
+            "src": {
+                "process": "bhspoc/bhs-input_yyudx",
+                "port": "schema"
+            },
+            "tgt": {
+                "process": "bhspoc/bhs-transform_5jumo",
+                "port": "inputfield"
+            },
+            "metadata": {
+                "route": null
+            }
+        },
+        {
+            "src": {
+                "process": "bhspoc/bhs-input_yyudx",
+                "port": "delimeter"
+            },
+            "tgt": {
+                "process": "bhspoc/bhs-transform_5jumo",
+                "port": "inputfield"
+            },
+            "metadata": {
+                "route": null
+            }
+        },
+        {
+            "src": {
+                "process": "bhspoc/bhs-transform_5jumo",
                 "port": "out"
             },
             "tgt": {
-                "process": "bhspoc/bhs-join_zkuav",
-                "port": "in"
+                "process": "bhspoc/bhs-join_l7lez",
+                "port": "in01"
             },
             "metadata": {}
         },
         {
             "src": {
-                "process": "bhspoc/bhs-join_zkuav",
+                "process": "bhspoc/bhs-join_l7lez",
                 "port": "out"
             },
             "tgt": {
-                "process": "bhspoc/bhs-transform_1c5zn",
+                "process": "bhspoc/bhs-broadcast_hbt0z",
                 "port": "in"
             },
             "metadata": {}
