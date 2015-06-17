@@ -20,8 +20,7 @@ exports.getComponent = function () {
   c.outPorts = new noflo.OutPorts({
     output: {
       datatype: 'string',
-      default :"a"
-    }
+     }
   });
 
  
