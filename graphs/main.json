@@ -9,72 +9,72 @@
     "outports": {},
     "groups": [],
     "processes": {
-        "bhspoc/bhs-output_yzjza": {
+        "output": {
             "component": "bhspoc/bhs-output",
             "metadata": {
-                "label": "bhspoc/bhs-output",
-                "x": 936,
-                "y": 108,
+                "label": "output",
+                "x": 900,
+                "y": -72,
                 "width": 72,
                 "height": 72
             }
         },
-        "bhspoc/bhs-input_hjjr": {
+        "input_znkil": {
             "component": "bhspoc/bhs-input",
             "metadata": {
-                "label": "bhspoc/bhs-input",
-                "x": 504,
-                "y": 252,
-                "width": 72,
-                "height": 72
-            }
-        },
-        "bhspoc/bhs-broadcast_amng3": {
-            "component": "bhspoc/bhs-broadcast",
-            "metadata": {
-                "label": "bhspoc/bhs-broadcast",
-                "x": 792,
+                "label": "input",
+                "x": 360,
                 "y": 180,
                 "width": 72,
                 "height": 72
             }
         },
-        "bhspoc/bhs-input_80g5k": {
+        "broadcast": {
+            "component": "bhspoc/bhs-broadcast",
+            "metadata": {
+                "label": "broadcast",
+                "x": 792,
+                "y": 0,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "input": {
             "component": "bhspoc/bhs-input",
             "metadata": {
-                "label": "bhspoc/bhs-input",
+                "label": "input",
                 "x": 360,
                 "y": 36,
                 "width": 72,
                 "height": 72
             }
         },
-        "bhspoc/bhs-join_x7uom": {
+        "join": {
             "component": "bhspoc/bhs-join",
             "metadata": {
-                "label": "bhspoc/bhs-join",
-                "x": 684,
-                "y": 180,
-                "width": 72,
-                "height": 72
-            }
-        },
-        "bhspoc/bhs-transform_lk430": {
-            "component": "bhspoc/bhs-transform",
-            "metadata": {
-                "label": "bhspoc/bhs-transform",
-                "x": 504,
+                "label": "join",
+                "x": 648,
                 "y": 108,
                 "width": 72,
                 "height": 72
             }
         },
-        "bhspoc/bhs-output_81gwb": {
+        "Transform": {
+            "component": "bhspoc/bhs-transform",
+            "metadata": {
+                "label": "Transform",
+                "x": 504,
+                "y": -72,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "output_lgbw": {
             "component": "bhspoc/bhs-output",
             "metadata": {
-                "label": "bhspoc/bhs-output",
-                "x": 972,
-                "y": 216,
+                "label": "output",
+                "x": 936,
+                "y": 72,
                 "width": 72,
                 "height": 72
             }
@@ -83,35 +83,22 @@
     "connections": [
         {
             "src": {
-                "process": "bhspoc/bhs-input_hjjr",
+                "process": "input_znkil",
                 "port": "output"
             },
             "tgt": {
-                "process": "bhspoc/bhs-join_x7uom",
+                "process": "join",
                 "port": "in02"
             },
             "metadata": {}
         },
         {
             "src": {
-                "process": "bhspoc/bhs-input_80g5k",
-                "port": "output"
-            },
-            "tgt": {
-                "process": "bhspoc/bhs-transform_lk430",
-                "port": "inputfield"
-            },
-            "metadata": {
-                "route": null
-            }
-        },
-        {
-            "src": {
-                "process": "bhspoc/bhs-transform_lk430",
+                "process": "Transform",
                 "port": "out"
             },
             "tgt": {
-                "process": "bhspoc/bhs-join_x7uom",
+                "process": "join",
                 "port": "in01"
             },
             "metadata": {
@@ -120,11 +107,11 @@
         },
         {
             "src": {
-                "process": "bhspoc/bhs-join_x7uom",
+                "process": "join",
                 "port": "out"
             },
             "tgt": {
-                "process": "bhspoc/bhs-broadcast_amng3",
+                "process": "broadcast",
                 "port": "in"
             },
             "metadata": {
@@ -133,37 +120,54 @@
         },
         {
             "src": {
-                "process": "bhspoc/bhs-broadcast_amng3",
+                "process": "broadcast",
                 "port": "out01"
             },
             "tgt": {
-                "process": "bhspoc/bhs-output_yzjza",
-                "port": "path"
+                "process": "output",
+                "port": "in"
             },
-            "metadata": {}
+            "metadata": {
+                "route": null
+            }
         },
         {
             "src": {
-                "process": "bhspoc/bhs-broadcast_amng3",
+                "process": "broadcast",
                 "port": "out02"
             },
             "tgt": {
-                "process": "bhspoc/bhs-output_81gwb",
-                "port": "path"
+                "process": "output_lgbw",
+                "port": "in"
             },
-            "metadata": {}
+            "metadata": {
+                "route": null
+            }
+        },
+        {
+            "src": {
+                "process": "input",
+                "port": "output"
+            },
+            "tgt": {
+                "process": "Transform",
+                "port": "in"
+            },
+            "metadata": {
+                "route": null
+            }
         },
         {
             "data": ",",
             "tgt": {
-                "process": "bhspoc/bhs-input_80g5k",
+                "process": "input",
                 "port": "delimeter"
             }
         },
         {
             "data": "inputpath1",
             "tgt": {
-                "process": "bhspoc/bhs-input_80g5k",
+                "process": "input",
                 "port": "path"
             }
         },
@@ -174,7 +178,7 @@
                 "Field3"
             ],
             "tgt": {
-                "process": "bhspoc/bhs-input_80g5k",
+                "process": "input",
                 "port": "schema"
             }
         },
@@ -184,14 +188,14 @@
                 "field3"
             ],
             "tgt": {
-                "process": "bhspoc/bhs-transform_lk430",
+                "process": "Transform",
                 "port": "inputfield"
             }
         },
         {
             "data": "\"someTransformclass\"",
             "tgt": {
-                "process": "bhspoc/bhs-transform_lk430",
+                "process": "Transform",
                 "port": "operation"
             }
         },
@@ -201,14 +205,14 @@
                 "name2": "value2"
             },
             "tgt": {
-                "process": "bhspoc/bhs-transform_lk430",
+                "process": "Transform",
                 "port": "properties"
             }
         },
         {
             "data": "\"inputpath2\"",
             "tgt": {
-                "process": "bhspoc/bhs-input_hjjr",
+                "process": "input_znkil",
                 "port": "path"
             }
         },
@@ -219,14 +223,14 @@
                 "field4"
             ],
             "tgt": {
-                "process": "bhspoc/bhs-input_hjjr",
+                "process": "input_znkil",
                 "port": "schema"
             }
         },
         {
             "data": "\"delim\"",
             "tgt": {
-                "process": "bhspoc/bhs-input_hjjr",
+                "process": "input_znkil",
                 "port": "delimeter"
             }
         },
@@ -238,7 +242,7 @@
                 ]
             },
             "tgt": {
-                "process": "bhspoc/bhs-join_x7uom",
+                "process": "join",
                 "port": "in01"
             }
         },
@@ -250,21 +254,21 @@
                 ]
             },
             "tgt": {
-                "process": "bhspoc/bhs-join_x7uom",
+                "process": "join",
                 "port": "in02"
             }
         },
         {
             "data": "\"outputpath1\"",
             "tgt": {
-                "process": "bhspoc/bhs-output_yzjza",
+                "process": "output",
                 "port": "path"
             }
         },
         {
             "data": "\"outpath2\"",
             "tgt": {
-                "process": "bhspoc/bhs-output_81gwb",
+                "process": "output_lgbw",
                 "port": "path"
             }
         },
@@ -284,7 +288,7 @@
                 ]
             },
             "tgt": {
-                "process": "bhspoc/bhs-output_81gwb",
+                "process": "output_lgbw",
                 "port": "schema"
             }
         },
@@ -304,7 +308,7 @@
                 ]
             },
             "tgt": {
-                "process": "bhspoc/bhs-output_yzjza",
+                "process": "output",
                 "port": "schema"
             }
         }
