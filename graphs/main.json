@@ -9,22 +9,12 @@
     "outports": {},
     "groups": [],
     "processes": {
-        "bhspoc/bhs-input": {
-            "component": "bhspoc/bhs-input",
-            "metadata": {
-                "label": "bhspoc/bhs-input",
-                "x": 0,
-                "y": 36,
-                "width": 72,
-                "height": 72
-            }
-        },
         "bhspoc/bhs-transform_5jumo": {
             "component": "bhspoc/bhs-transform",
             "metadata": {
                 "label": "bhspoc/bhs-transform",
-                "x": 216,
-                "y": -108,
+                "x": -36,
+                "y": -252,
                 "width": 72,
                 "height": 72
             }
@@ -33,8 +23,8 @@
             "component": "bhspoc/bhs-join",
             "metadata": {
                 "label": "bhspoc/bhs-join",
-                "x": 252,
-                "y": 36,
+                "x": 180,
+                "y": -36,
                 "width": 72,
                 "height": 72
             }
@@ -43,53 +33,24 @@
             "component": "bhspoc/bhs-broadcast",
             "metadata": {
                 "label": "bhspoc/bhs-broadcast",
-                "x": 396,
-                "y": 72,
+                "x": 288,
+                "y": -216,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "bhspoc/bhs-input_t6yf5": {
+            "component": "bhspoc/bhs-input",
+            "metadata": {
+                "label": "bhspoc/bhs-input",
+                "x": 108,
+                "y": 108,
                 "width": 72,
                 "height": 72
             }
         }
     },
     "connections": [
-        {
-            "src": {
-                "process": "bhspoc/bhs-input",
-                "port": "path"
-            },
-            "tgt": {
-                "process": "bhspoc/bhs-transform_5jumo",
-                "port": "inputfield"
-            },
-            "metadata": {
-                "route": null
-            }
-        },
-        {
-            "src": {
-                "process": "bhspoc/bhs-input",
-                "port": "schema"
-            },
-            "tgt": {
-                "process": "bhspoc/bhs-transform_5jumo",
-                "port": "inputfield"
-            },
-            "metadata": {
-                "route": null
-            }
-        },
-        {
-            "src": {
-                "process": "bhspoc/bhs-input",
-                "port": "delimeter"
-            },
-            "tgt": {
-                "process": "bhspoc/bhs-transform_5jumo",
-                "port": "inputfield"
-            },
-            "metadata": {
-                "route": null
-            }
-        },
         {
             "src": {
                 "process": "bhspoc/bhs-transform_5jumo",
@@ -109,6 +70,17 @@
             "tgt": {
                 "process": "bhspoc/bhs-broadcast_hbt0z",
                 "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "bhspoc/bhs-input_t6yf5",
+                "port": "path"
+            },
+            "tgt": {
+                "process": "bhspoc/bhs-join_l7lez",
+                "port": "in02"
             },
             "metadata": {}
         },
