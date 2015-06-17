@@ -5,13 +5,16 @@ exports.getComponent = function () {
   
   c.outPorts = new noflo.OutPorts({
     path: {
-      datatype: 'string'
+      datatype: 'string',
+      default :"a"
     },
     schema: {
-      datatype: 'array'
+      datatype: 'array',
+       default :"[1,2,3]"
     },
     delimeter: {
-      datatype: 'string'
+      datatype: 'string',
+       default :","
     }
   });
 
