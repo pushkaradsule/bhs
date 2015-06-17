@@ -13,8 +13,8 @@
             "component": "bhspoc/bhs-output",
             "metadata": {
                 "label": "bhspoc/bhs-output",
-                "x": 792,
-                "y": 72,
+                "x": 936,
+                "y": 108,
                 "width": 72,
                 "height": 72
             }
@@ -23,8 +23,8 @@
             "component": "bhspoc/bhs-input",
             "metadata": {
                 "label": "bhspoc/bhs-input",
-                "x": 360,
-                "y": 324,
+                "x": 504,
+                "y": 252,
                 "width": 72,
                 "height": 72
             }
@@ -33,7 +33,7 @@
             "component": "bhspoc/bhs-broadcast",
             "metadata": {
                 "label": "bhspoc/bhs-broadcast",
-                "x": 936,
+                "x": 792,
                 "y": 180,
                 "width": 72,
                 "height": 72
@@ -43,8 +43,8 @@
             "component": "bhspoc/bhs-input",
             "metadata": {
                 "label": "bhspoc/bhs-input",
-                "x": 334,
-                "y": 100,
+                "x": 360,
+                "y": 36,
                 "width": 72,
                 "height": 72
             }
@@ -53,7 +53,7 @@
             "component": "bhspoc/bhs-join",
             "metadata": {
                 "label": "bhspoc/bhs-join",
-                "x": 540,
+                "x": 684,
                 "y": 180,
                 "width": 72,
                 "height": 72
@@ -63,27 +63,24 @@
             "component": "bhspoc/bhs-transform",
             "metadata": {
                 "label": "bhspoc/bhs-transform",
-                "x": 720,
-                "y": 288,
+                "x": 504,
+                "y": 108,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "bhspoc/bhs-output_81gwb": {
+            "component": "bhspoc/bhs-output",
+            "metadata": {
+                "label": "bhspoc/bhs-output",
+                "x": 972,
+                "y": 216,
                 "width": 72,
                 "height": 72
             }
         }
     },
     "connections": [
-        {
-            "src": {
-                "process": "bhspoc/bhs-input_80g5k",
-                "port": "output"
-            },
-            "tgt": {
-                "process": "bhspoc/bhs-join_x7uom",
-                "port": "in01"
-            },
-            "metadata": {
-                "route": null
-            }
-        },
         {
             "src": {
                 "process": "bhspoc/bhs-input_hjjr",
@@ -97,19 +94,47 @@
         },
         {
             "src": {
-                "process": "bhspoc/bhs-join_x7uom",
-                "port": "out"
+                "process": "bhspoc/bhs-input_80g5k",
+                "port": "output"
             },
             "tgt": {
                 "process": "bhspoc/bhs-transform_lk430",
                 "port": "inputfield"
             },
-            "metadata": {}
+            "metadata": {
+                "route": null
+            }
         },
         {
             "src": {
                 "process": "bhspoc/bhs-transform_lk430",
                 "port": "out"
+            },
+            "tgt": {
+                "process": "bhspoc/bhs-join_x7uom",
+                "port": "in01"
+            },
+            "metadata": {
+                "route": null
+            }
+        },
+        {
+            "src": {
+                "process": "bhspoc/bhs-join_x7uom",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "bhspoc/bhs-broadcast_amng3",
+                "port": "in"
+            },
+            "metadata": {
+                "route": null
+            }
+        },
+        {
+            "src": {
+                "process": "bhspoc/bhs-broadcast_amng3",
+                "port": "out01"
             },
             "tgt": {
                 "process": "bhspoc/bhs-output_yzjza",
@@ -119,57 +144,168 @@
         },
         {
             "src": {
-                "process": "bhspoc/bhs-transform_lk430",
-                "port": "out"
-            },
-            "tgt": {
                 "process": "bhspoc/bhs-broadcast_amng3",
-                "port": "in"
+                "port": "out02"
             },
-            "metadata": {
-                "route": 0
-            }
-        },
-        {
-            "data": "a",
             "tgt": {
-                "process": "bhspoc/bhs-input_hjjr",
+                "process": "bhspoc/bhs-output_81gwb",
                 "port": "path"
-            }
-        },
-        {
-            "data": "[1,2,3]",
-            "tgt": {
-                "process": "bhspoc/bhs-input_hjjr",
-                "port": "schema"
-            }
-        },
-        {
-            "data": ",",
-            "tgt": {
-                "process": "bhspoc/bhs-input_hjjr",
-                "port": "delimeter"
-            }
-        },
-        {
-            "data": "a",
-            "tgt": {
-                "process": "bhspoc/bhs-input_80g5k",
-                "port": "path"
-            }
-        },
-        {
-            "data": "[1,2,3]",
-            "tgt": {
-                "process": "bhspoc/bhs-input_80g5k",
-                "port": "schema"
-            }
+            },
+            "metadata": {}
         },
         {
             "data": ",",
             "tgt": {
                 "process": "bhspoc/bhs-input_80g5k",
                 "port": "delimeter"
+            }
+        },
+        {
+            "data": "inputpath1",
+            "tgt": {
+                "process": "bhspoc/bhs-input_80g5k",
+                "port": "path"
+            }
+        },
+        {
+            "data": [
+                "field1",
+                "Field2",
+                "Field3"
+            ],
+            "tgt": {
+                "process": "bhspoc/bhs-input_80g5k",
+                "port": "schema"
+            }
+        },
+        {
+            "data": [
+                "field1",
+                "field3"
+            ],
+            "tgt": {
+                "process": "bhspoc/bhs-transform_lk430",
+                "port": "inputfield"
+            }
+        },
+        {
+            "data": "\"someTransformclass\"",
+            "tgt": {
+                "process": "bhspoc/bhs-transform_lk430",
+                "port": "operation"
+            }
+        },
+        {
+            "data": {
+                "name1": "value1",
+                "name2": "value2"
+            },
+            "tgt": {
+                "process": "bhspoc/bhs-transform_lk430",
+                "port": "properties"
+            }
+        },
+        {
+            "data": "\"inputpath2\"",
+            "tgt": {
+                "process": "bhspoc/bhs-input_hjjr",
+                "port": "path"
+            }
+        },
+        {
+            "data": [
+                "field1",
+                "field3",
+                "field4"
+            ],
+            "tgt": {
+                "process": "bhspoc/bhs-input_hjjr",
+                "port": "schema"
+            }
+        },
+        {
+            "data": "\"delim\"",
+            "tgt": {
+                "process": "bhspoc/bhs-input_hjjr",
+                "port": "delimeter"
+            }
+        },
+        {
+            "data": {
+                "keys": [
+                    "field1",
+                    "field2"
+                ]
+            },
+            "tgt": {
+                "process": "bhspoc/bhs-join_x7uom",
+                "port": "in01"
+            }
+        },
+        {
+            "data": {
+                "keys": [
+                    "field1",
+                    "field2"
+                ]
+            },
+            "tgt": {
+                "process": "bhspoc/bhs-join_x7uom",
+                "port": "in02"
+            }
+        },
+        {
+            "data": "\"outputpath1\"",
+            "tgt": {
+                "process": "bhspoc/bhs-output_yzjza",
+                "port": "path"
+            }
+        },
+        {
+            "data": "\"outpath2\"",
+            "tgt": {
+                "process": "bhspoc/bhs-output_81gwb",
+                "port": "path"
+            }
+        },
+        {
+            "data": {
+                "params": [
+                    [
+                        "field1",
+                        5,
+                        "temp1"
+                    ],
+                    [
+                        "field2",
+                        2,
+                        "temp2"
+                    ]
+                ]
+            },
+            "tgt": {
+                "process": "bhspoc/bhs-output_81gwb",
+                "port": "schema"
+            }
+        },
+        {
+            "data": {
+                "params": [
+                    [
+                        "field11",
+                        15,
+                        "temp11"
+                    ],
+                    [
+                        "field12",
+                        12,
+                        "temp12"
+                    ]
+                ]
+            },
+            "tgt": {
+                "process": "bhspoc/bhs-output_yzjza",
+                "port": "schema"
             }
         }
     ]
