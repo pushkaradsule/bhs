@@ -9,7 +9,7 @@
     "outports": {},
     "groups": [],
     "processes": {
-        "bhspoc/bhs-input_yyudx": {
+        "bhspoc/bhs-input": {
             "component": "bhspoc/bhs-input",
             "metadata": {
                 "label": "bhspoc/bhs-input",
@@ -23,8 +23,8 @@
             "component": "bhspoc/bhs-transform",
             "metadata": {
                 "label": "bhspoc/bhs-transform",
-                "x": 144,
-                "y": -72,
+                "x": 216,
+                "y": -108,
                 "width": 72,
                 "height": 72
             }
@@ -53,7 +53,7 @@
     "connections": [
         {
             "src": {
-                "process": "bhspoc/bhs-input_yyudx",
+                "process": "bhspoc/bhs-input",
                 "port": "path"
             },
             "tgt": {
@@ -66,7 +66,7 @@
         },
         {
             "src": {
-                "process": "bhspoc/bhs-input_yyudx",
+                "process": "bhspoc/bhs-input",
                 "port": "schema"
             },
             "tgt": {
@@ -79,7 +79,7 @@
         },
         {
             "src": {
-                "process": "bhspoc/bhs-input_yyudx",
+                "process": "bhspoc/bhs-input",
                 "port": "delimeter"
             },
             "tgt": {
@@ -111,6 +111,33 @@
                 "port": "in"
             },
             "metadata": {}
+        },
+        {
+            "data": [
+                1,
+                2,
+                3
+            ],
+            "tgt": {
+                "process": "bhspoc/bhs-transform_5jumo",
+                "port": "inputfield"
+            }
+        },
+        {
+            "data": "save",
+            "tgt": {
+                "process": "bhspoc/bhs-transform_5jumo",
+                "port": "operation"
+            }
+        },
+        {
+            "data": {
+                "A": "1"
+            },
+            "tgt": {
+                "process": "bhspoc/bhs-transform_5jumo",
+                "port": "properties"
+            }
         }
     ]
 }
